@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'relevant/css/styles.css' %}">
+    <title>Calculate</title>
+</head>
+
+<body>
+    <div class="request-info">
+            <p>Request Type: <span class="request-type">GET</span></p>
+            <p>Endpoint: <span class="endpoint">/calculate/</span></p>
+    </div>
+    <table border="2">
+    <thead>
+        <tr>
+            <th>Параметр</th>
+            <th>Тип данных</th>
+            <th>Обязательность</th>
+            <th>Описание</th>
+            <th>Варианты значений</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>age_from</td>
+            <td>Integer</td>
+            <td>Да</td>
+            <td>Возраст от ...</td>
+            <td>Положительное целочисленное значение (от 18 до 100)<br>Значение: 18</td>
+        </tr>
+        <tr>
+            <td>age_to</td>
+            <td>Integer</td>
+            <td>Да</td>
+            <td>Возраст до ...</td>
+            <td>Положительное целочисленное значение (от 18 до 100)<br>Значение: 100</td>
+        </tr>
+        <tr>
+            <td>salary_from</td>
+            <td>Integer</td>
+            <td>Да</td>
+            <td>Зарплата от ...</td>
+            <td>Положительное целочисленное значение (от 0 до 3000001)</td>
+        </tr>
+        <tr>
+            <td>salary_to</td>
+            <td>Integer</td>
+            <td>Да</td>
+            <td>Зарплата до ...</td>
+            <td>Положительное целочисленное значение (от 0 до 3000001)</td>
+        </tr>
+        <tr>
+            <td>gender</td>
+            <td>String</td>
+            <td>Да</td>
+            <td>Пол</td>
+            <td>Значение: m<br>Значение: f</td>
+        </tr>
+        <tr>
+            <td>city</td>
+            <td>String</td>
+            <td>Да</td>
+            <td>Городское/сельское население</td>
+            <td>Значение: city<br>Значение: vilage</td>
+        </tr>
+        <tr>
+            <td>marital_status_list</td>
+            <td>List[string]</td>
+            <td>Да</td>
+            <td>Семейное положение.<br>
+                married - состоящие в браке<br>
+                single - никогда не состоявшие в браке, супружеском союзе<br>
+                divorced - разведенные официально<br>
+                separation - разошедшиеся<br>
+                widowed - вдовые<br>
+            <td>Значение: married<br>
+                Значение: single<br>
+                Значение: divorced<br>
+                Значение: separation<br>
+                Значение: widowed</td>
+        </tr>
+        <tr>
+            <td>education_list</td>
+            <td>List[string]</td>
+            <td>Да</td>
+            <td>Образование.<br>
+                phd - кадры высшей квалификации<br>
+                higher_education - высшее<br>
+                undergraduate_education - неполное высшее (незаконченное высшее)<br>
+                secondary_professional_education - среднее профессиональное<br>
+                secondary_education - среднее<br>
+                basic_education - основное<br>
+                primary_education - начальное<br>
+                pre_school_education - дошкольное<br>
+                without_education - не имеющие образования<br>
+            <td>Значение: phd<br>
+                Значение: higher_education<br>
+                Значение: undergraduate_education<br>
+                Значение: secondary_professional_education<br>
+                Значение: secondary_education<br>
+                Значение: basic_education<br>
+                Значение: primary_education<br>
+                Значение: pre_school_education<br>
+                Значение: without_education</td>
+        </tr>
+    </tbody>
+    </table>
+    <div class="responses-info">
+        <p>Response: <span class="response">{"result": "100 %"}</span></p>
+    </div>
+
+
+
+</body>
+</html>

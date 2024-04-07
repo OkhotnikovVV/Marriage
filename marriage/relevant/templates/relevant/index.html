@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate</title>
+</head>
+<body>
+    <form id="calculation-form">
+        <label for="age_from">age_from:</label>
+        <input type="number" id="age_from" name="age_from"><br><br>
+
+        <label for="age_to">age_to:</label>
+        <input type="number" id="age_to" name="age_to"><br><br>
+
+        <label for="salary_from">salary_from:</label>
+        <input type="number" id="salary_from" name="salary_from"><br><br>
+
+        <label for="salary_to">salary_to:</label>
+        <input type="number" id="salary_to" name="salary_to"><br><br>
+
+        <label for="gender">gender:</label>
+        <select id="gender" name="gender">
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+        </select><br><br>
+
+        <label>City:</label><br>
+        <input type="checkbox" name="city" value="city">City<br>
+        <input type="checkbox" name="city" value="vilage">Vilage<br>
+
+        <br><br>
+
+        <label>Education:</label><br>
+        <input type="checkbox" name="education" value="phd">PhD<br>
+        <input type="checkbox" name="education" value="higher_education">Higher Education<br>
+        <input type="checkbox" name="education" value="undergraduate_education">Undergraduate Education<br>
+        <input type="checkbox" name="education" value="secondary_professional_education">Secondary Professional Education<br>
+        <input type="checkbox" name="education" value="secondary_education">Secondary Education<br>
+        <input type="checkbox" name="education" value="basic_education">Basic Education<br>
+        <input type="checkbox" name="education" value="primary_education">Primary Education<br>
+        <input type="checkbox" name="education" value="pre_school_education">Pre school Education<br>
+        <input type="checkbox" name="education" value="without_education">Without Education<br>
+
+        <br><br>
+
+        <label>Marital Status:</label><br>
+        <input type="checkbox" name="marital_status" value="married">Married<br>
+        <input type="checkbox" name="marital_status" value="single">Single<br>
+        <input type="checkbox" name="marital_status" value="divorced">Divorced<br>
+        <input type="checkbox" name="marital_status" value="separation">Separation<br>
+        <input type="checkbox" name="marital_status" value="widowed">Widowed<br>
+
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        function calculate() {
+            var age_from = document.getElementById('age_from').value;
+            var age_to = document.getElementById('age_to').value;
+            var salary_from = document.getElementById('salary_from').value;
+            var salary_to = document.getElementById('salary_to').value;
+            var gender = document.getElementById('gender').value;
+
+
+            var cityCheckboxes = document.getElementsByName('city');
+            var city = [];
+            cityCheckboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    city.push(checkbox.value);
+                }
+            });
+            var educationCheckboxes = document.getElementsByName('education');
+            var education = [];
+            educationCheckboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    education.push(checkbox.value);
+                }
+            });
+            var maritalStatusCheckboxes = document.getElementsByName('marital_status');
+            var maritalStatus = [];
+            maritalStatusCheckboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    maritalStatus.push(checkbox.value);
+                }
+            });
+
+            // Формируем URL для отправки GET запроса
+            var url = '/calculate/?age_from=' + age_from + '&age_to=' + age_to + '&salary_from=' + salary_from + '&salary_to=' + salary_to + '&gender=' + gender + '&city=' + city.join('&city=') + '&education=' + education.join('&education=') + '&marital_status=' + maritalStatus.join('&marital_status=');
+
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById('results').innerHTML = JSON.stringify(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
