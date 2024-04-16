@@ -1,14 +1,9 @@
-from decimal import Decimal
-from typing import Union, Dict, List, Tuple
-
-from django.core.exceptions import FieldError
+from django.http import HttpRequest
+from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render
-from django.http import JsonResponse, HttpResponseNotFound, HttpResponseBadRequest, HttpRequest, HttpResponse
-from django.db.models import Sum
-from django.db.models import Q
 from rest_framework.views import APIView
 
-from .models import MaritalStatus, People, Education, Salary
 from .serializers import InputDataSerializer
 from .services import CalculationLogic
 
@@ -29,7 +24,7 @@ class CalculateAPI(APIView):
 
         calculator = CalculationLogic(input_data)
 
-        final_percentage = calculator.get_final_percentage()
+        final_percentage = calculator.calculate_final_percentage()
 
         results = {'result': final_percentage}
 
@@ -61,7 +56,7 @@ class CalculateAPI(APIView):
         #
         # people_gender_total = People.objects.all()
         # queryset = People.objects.filter(gender=gender).aggregate(Sum('amount')).get('amount__sum')
-        final_percentage = 2
+        # final_percentage = 2
         # results = {'result': final_percentage}
         # print(request, 'sdfgsdfgsdfgsdfg')
         # print(CalculateSerializer(request.data).data, type(CalculateSerializer(request.data).data), 'otvet')

@@ -1,8 +1,4 @@
-# books/serializers.py
-from django_filters import Filter, FilterSet, NumberFilter
-from django.db.models import Q
 from rest_framework import serializers
-from .models import People, Salary, MaritalStatus, Education
 
 
 class InputDataSerializer(serializers.Serializer):
@@ -14,27 +10,3 @@ class InputDataSerializer(serializers.Serializer):
     city = serializers.ListField()
     marital_status = serializers.ListField()
     education = serializers.ListField()
-
-
-# class PeopleSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = People
-#         fields = "__all__"
-#
-#
-# class MaritalStatusSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = MaritalStatus
-#         fields = "__all__"
-#
-#
-# class EducationSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Education
-#         fields = "__all__"
-#
-#
-# class SalarySerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Salary
-#         fields = "__all__"
