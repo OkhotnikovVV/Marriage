@@ -17,7 +17,7 @@ marriage/static
 
 # If you are using PyCharm #
 # User-specific stuff
-.idea/
+.idea
 
 # File-based project format
 *.iws
