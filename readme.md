@@ -43,17 +43,20 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- ABOUT THE DATA -->
+### About The Data
+
+Данные о переписи населения взяты из открытых источников с сайта https://rosstat.gov.ru/
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+<!-- BUILT WITH -->
 ### Built With
 
 * [![Python][Python.org]][Python-url]
 * [![Django][Django.org]][Django-url]
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 
 
