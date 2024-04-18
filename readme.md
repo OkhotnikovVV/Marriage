@@ -89,7 +89,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Okhotnikov V.V. - [@OkhotnikovVV](https://t.me/@OkhotnikovVV) - 8_00@bk.ru
+Okhotnikov V.V. - [@OkhotnikovVV](https://t.me/OkhotnikovVV) - 8_00@bk.ru
 
 Project Link: [https://github.com/OkhotnikovVV/Marriage](https://github.com/OkhotnikovVV/Marriage)
 
