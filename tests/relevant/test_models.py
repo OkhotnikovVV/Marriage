@@ -15,7 +15,6 @@ class TestPeople:
         )
         assert model.id is not None
 
-
     @pytest.mark.django_db
     def test_model_attributes(self):
         model = People.objects.create(
@@ -49,7 +48,6 @@ class TestMaritalStatus:
             widowed=0.01,
         )
         assert model.people is not None
-
 
     @pytest.mark.django_db
     def test_model_attributes(self):
