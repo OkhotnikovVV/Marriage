@@ -30,7 +30,8 @@ class TestCalculationLogic:
             city=data["city"],
             amount=900000,
         )
-        people = model.objects.filter(age__range=(self.data['age_from'], self.data['age_to']),
-                                       gender=self.data['gender'],
-                                       city__in=self.data['city'],
+        people = People.objects.filter(age__range=(data['age_from'], data['age_to']),
+                                       gender=data['gender'],
+                                       city__in=data['city'],
                                        ).all()
+        print()
