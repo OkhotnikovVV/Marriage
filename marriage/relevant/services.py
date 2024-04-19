@@ -16,7 +16,7 @@ class CalculationLogic:
     """Класс для вычисления процента людей,
     удовлетворяющих входным условиям (возраст, пол, образование и др.)
     """
-    def __init__(self, input_data):
+    def __init__(self, input_data: dict):
         self.input_data = input_data
 
     def get_amount_people(self) -> float:

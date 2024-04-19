@@ -4,7 +4,6 @@ from relevant.models import People, MaritalStatus
 
 
 class TestPeople:
-
     @pytest.mark.django_db
     def test_model_creation(self):
         model = People.objects.create(
