@@ -25,4 +25,3 @@ test_data_index_content = [
 def test_index_content(client: Client, a):
     response = client.get('/about/')
     assert a in response.content.decode()
-
