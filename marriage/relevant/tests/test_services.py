@@ -23,6 +23,7 @@ class TestCalculationLogic:
         calculator = CalculationLogic(data)
         assert calculator.input_data == data
 
+    @pytest.mark.django_db
     def test_calculate_final_percentage(self, data):
         model = People.objects.create(
             age=data['age_from'],
