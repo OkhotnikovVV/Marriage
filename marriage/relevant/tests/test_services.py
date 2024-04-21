@@ -1,13 +1,12 @@
-import pytest
+from django.test import TestCase
 
-from relevant.models import People
 from relevant.services import CalculationLogic
 
 
-class TestCalculationLogic:
-    @pytest.fixture
-    def data(self):
-        data = {
+class TestCalculationLogic(TestCase):
+    fixtures = ['db.json']
+    def setUp(self):
+        self.data = {
             'age_from': 18,
             'age_to': 99,
             'salary_from': 15000,
@@ -17,22 +16,12 @@ class TestCalculationLogic:
             'marital_status': ['widowed'],
             'education': ['without_education']
         }
-        return data
 
-    def test_init(self, data):
-        calculator = CalculationLogic(data)
-        assert calculator.input_data == data
+    def test_init(self):
+        calculator = CalculationLogic(self.data)
+        assert calculator.input_data == self.data
 
-    @pytest.mark.django_db
-    def test_calculate_final_percentage(self, data):
-        model = People.objects.create(
-            age=data['age_from'],
-            gender=data['gender'],
-            city=data["city"],
-            amount=900000,
-        )
-        people = People.objects.filter(age__range=(data['age_from'], data['age_to']),
-                                       gender=data['gender'],
-                                       city__in=data['city'],
-                                       ).all()
-        print()
+    def test_calculate_final_percentage_ok(self):
+        c = CalculationLogic(self.data)
+        c = c.calculate_final_percentage()
+        assert c == '0.0028643678 %'
