@@ -25,3 +25,8 @@ class TestCalculationLogic(TestCase):
         c = CalculationLogic(self.data)
         c = c.calculate_final_percentage()
         assert c == '0.0028643678 %'
+
+    def test_calculate_final_percentage_not_ok(self):
+        c = CalculationLogic(self.data)
+        c = c.calculate_final_percentage()
+        assert c == '1 %'
