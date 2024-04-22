@@ -46,10 +46,10 @@ class CalculationLogic:
     def get_salary_percentage(self) -> float:
         """Получить процент людей с указанной зарплатой."""
 
-        filter1 = Q(level_from__gt=self.input_data['salary_from']) | Q(level_from__lte=self.input_data['salary_from'],
-                                                                       level_to__gt=self.input_data['salary_from'])
-        filter2 = Q(level_to__lt=self.input_data['salary_to']) | Q(level_from__lte=self.input_data['salary_to'],
-                                                                   level_to__gt=self.input_data['salary_to'])
+        filter1 = Q(level_from__gt=self.input_data['salary_min']) | Q(level_from__lte=self.input_data['salary_min'],
+                                                                       level_to__gt=self.input_data['salary_min'])
+        filter2 = Q(level_to__lt=self.input_data['salary_max']) | Q(level_from__lte=self.input_data['salary_max'],
+                                                                   level_to__gt=self.input_data['salary_max'])
 
         filtered_salaries = Salary.objects.filter(filter1, filter2)
 
@@ -59,7 +59,7 @@ class CalculationLogic:
 
     def calculate_final_percentage(self) -> str:
         """Вычислить итоговый процент людей."""
-        people = People.objects.filter(age__range=(self.input_data['age_from'], self.input_data['age_to']),
+        people = People.objects.filter(age__range=(self.input_data['age_min'], self.input_data['age_max']),
                                        gender=self.input_data['gender'],
                                        city__in=self.input_data['city'],
                                        ).all()

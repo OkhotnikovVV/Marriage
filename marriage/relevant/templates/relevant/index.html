@@ -58,10 +58,10 @@
 
     <script>
         function calculate() {
-            var age_from = document.getElementById('age_from').value;
-            var age_to = document.getElementById('age_to').value;
-            var salary_from = document.getElementById('salary_from').value;
-            var salary_to = document.getElementById('salary_to').value;
+            var age_min = document.getElementById('age_min').value;
+            var age_max = document.getElementById('age_max').value;
+            var salary_min = document.getElementById('salary_min').value;
+            var salary_max = document.getElementById('salary_max').value;
             var gender = document.getElementById('gender').value;
 
 
@@ -88,7 +88,7 @@
             });
 
             // Формируем URL для отправки GET запроса
-            var url = '/calculate/?age_from=' + age_from + '&age_to=' + age_to + '&salary_from=' + salary_from + '&salary_to=' + salary_to + '&gender=' + gender + '&city=' + city.join('&city=') + '&education=' + education.join('&education=') + '&marital_status=' + maritalStatus.join('&marital_status=');
+            var url = '/calculate/?age_min=' + age_min + '&age_max=' + age_max + '&salary_min=' + salary_min + '&salary_max=' + salary_max + '&gender=' + gender + '&city=' + city.join('&city=') + '&education=' + education.join('&education=') + '&marital_status=' + maritalStatus.join('&marital_status=');
 
             fetch(url)
             .then(response => response.json())
